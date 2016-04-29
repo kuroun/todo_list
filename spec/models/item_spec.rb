@@ -5,6 +5,6 @@ RSpec.describe Item, type: :model do
   #test assocation
   it "should belong to list" do 
     item = Item.reflect_on_association(:list)
-    item.macro.should ==  :belong_to
+    item.macro.should ==  :belongs_to
   end
 end
