@@ -1,17 +1,13 @@
 <%- model_class = List -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1>
+    <%=t '.title', :default => model_class.model_name.human.titleize %>: <%= @list.title %>
+    <% if(!@list.description.nil?) %>
+      <br>
+      <small><%= @list.description %></small>
+    <% end %>
+  </h1>
 </div>
-
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @list.title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @list.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @list.user_id %></dd>
-</dl>
-
 <%= link_to t('.back', :default => t("helpers.links.back")),
               lists_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -21,3 +17,38 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+<%= link_to 'Add Item', new_item_path, :class => 'btn btn-success' %>
+<% session[:list_id] = @list.id %>
+<% if(!@list.items.empty?) %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>State</th>
+        <th>Note</th>
+        <th>Created at</th>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @list.items.order('created_at DESC').each do |item| %>
+        <tr>
+          <td><%= item.title %></td>
+          <td class="<%= item_state_css(item.state) %>"><%= item.state %></td>
+          <td><%= item.note %></td>
+          <td><%= item.created_at.strftime('%m/%d/%Y') %></td>
+          <td>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                        edit_item_path(item), :class => 'btn btn-default btn-xs' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                        item_path(item),
+                        :method => :delete,
+                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                        :class => 'btn btn-xs btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+

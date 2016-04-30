@@ -16,8 +16,8 @@
     <% @lists.each do |list| %>
       <tr>
         <td><%= link_to list.title, list_path(list) %></td>
-        <td><%= items_count('not started', list.id)%></td>
-        <td><%= items_count('in progress', list.id)%></td>
+        <td class='item not_start'><%= items_count('not started', list.id)%></td>
+        <td class='item progress'><%= items_count('in progress', list.id)%></td>
         <td><%= list.created_at.strftime('%m/%d/%Y') %></td>
         <td>
           <%= link_to 'View', list_path(list), :class => 'btn btn-success btn-xs' %>

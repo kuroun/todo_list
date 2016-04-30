@@ -23,17 +23,20 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.save
-    respond_with(@item)
+    #respond_with(@item)
+    redirect_to list_path(session[:list_id])
   end
 
   def update
     @item.update(item_params)
-    respond_with(@item)
+    #respond_with(@item)
+    redirect_to list_path(session[:list_id])
   end
 
   def destroy
     @item.destroy
-    respond_with(@item)
+    #respond_with(@item)
+    redirect_to list_path(session[:list_id])
   end
 
   private

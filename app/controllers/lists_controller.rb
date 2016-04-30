@@ -4,6 +4,7 @@ class ListsController < ApplicationController
   respond_to :html
 
   def index
+    session.delete(:list_id)
     @lists = List.where(user_id: current_user.id).order('created_at DESC')
     respond_with(@lists)
   end
