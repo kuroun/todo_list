@@ -1,10 +1,10 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list,:check_authorized_user, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
   def index
-    @lists = List.all
+    @lists = List.where(user_id: current_user.id).order('created_at DESC')
     respond_with(@lists)
   end
 
@@ -43,5 +43,11 @@ class ListsController < ApplicationController
 
     def list_params
       params.require(:list).permit(:title, :description, :user_id)
+    end
+
+    def check_authorized_user
+      if(@list.user_id != current_user.id)
+        redirect_to lists_path
+      end
     end
 end
