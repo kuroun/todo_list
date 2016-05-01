@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, :check_authorized_user, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
@@ -46,5 +46,10 @@ class ItemsController < ApplicationController
 
     def item_params
       params.require(:item).permit(:title, :state, :note, :list_id)
+    end
+    def check_authorized_user
+      if(@item.list.user_id != current_user.id)
+        redirect_to lists_path
+      end
     end
 end
