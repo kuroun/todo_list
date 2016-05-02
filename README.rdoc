@@ -21,7 +21,7 @@
 Testing covers only some functionalities in Model, so to run testing use the following command line:
 * <tt>rspec spec/models</tt>
 
-=== Trying Application in Production Mode
+=== Demo Application in Production Mode
 
 To explore application, click here[104.236.188.128]. There are two users available to login:
 
