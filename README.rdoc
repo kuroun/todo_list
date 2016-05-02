@@ -12,7 +12,7 @@
 
 * Install necessary libraries: <tt>bundle install</tt>
 
-* Create database: <tt>rake db:create</tt>. In case you have different database, username and password, please edit file <tt>/config/database.yml</tt> for your environment
+* Create database: <tt>rake db:create</tt>. In case you have different database, username and password, please edit file <tt>/config/database.yml</tt> for your environment.
 
 * Migrate database structure: <tt>rake db:migrate</tt>
 
