@@ -16,7 +16,7 @@
 
 * Seed sample data to database: <tt>rake db:seed</tt>
 
-* Run application <tt>rails s</tt>
+* Run application: <tt>rails s</tt>
 
 * Access application via browser at <tt>localhost:3000</tt>
 
