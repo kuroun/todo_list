@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   #Resources should never be nested more than 1 level deep 
   #http://weblog.jamisbuck.org/2007/2/5/nesting-resources
-  resources :items
+  resources :items, :except =>  [:show,:index]
 
   resources :lists
 
