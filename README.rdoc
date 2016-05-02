@@ -6,11 +6,13 @@
 
 * Rails 4.1.8
 
+* Database: MySQL 5.7
+
 === Running Application in Local Environment
 
 * Install necessary libraries: <tt>bundle install</tt>
 
-* Create database: <tt>rake db:create</tt>
+* Create database: <tt>rake db:create</tt>. In case you have different database, username and password, please edit file <tt>/config/database.yml</tt> for your environment
 
 * Migrate database structure: <tt>rake db:migrate</tt>
 
