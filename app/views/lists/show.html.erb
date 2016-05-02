@@ -1,7 +1,7 @@
 <%- model_class = List -%>
 <div class="page-header">
   <h1>
-    <%=t '.title', :default => model_class.model_name.human.titleize %>: <%= @list.title %>
+    <%= @list.title %>
     <% if(!@list.description.nil?) %>
       <br>
       <small><%= @list.description %></small>
@@ -17,7 +17,7 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
-<%= link_to 'Add Item', new_item_path, :class => 'btn btn-success' %>
+<%= link_to 'Add Item', new_item_path, :class => 'btn btn-primary' %>
 <% session[:list_id] = @list.id %>
 <% if(!@list.items.empty?) %>
   <table class="table table-striped">
