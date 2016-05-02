@@ -1,28 +1,39 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+=== Version
 
-Things you may want to cover:
+* Ruby 2.1.5p273
 
-* Ruby version
+* Rails 4.1.8
 
-* System dependencies
+=== Running Application in Local Environment
 
-* Configuration
+* <tt>bundle install</tt>
 
-* Database creation
+* <tt>rake db:create</tt>
 
-* Database initialization
+* <tt>rake db:migrate</tt>
 
-* How to run the test suite
+* <tt>rake db:seed</tt>
 
-* Services (job queues, cache servers, search engines, etc.)
+=== Running Rspec
 
-* Deployment instructions
+Testing covers only some functionalities in Model, so to run testing use the following command line:
+* <tt>rspec spec/models</tt>
 
-* ...
+=== Trying Application in Production Mode
 
+To explore application, click here[104.236.188.128]. There are two users available to login:
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* <em>User 1</em>
+
+    Email: john@todolist.com
+
+    Password: 12345678
+
+* <em>User 2</em>
+
+    Email: marry@todolist.com
+
+    Password: 12345678
+
