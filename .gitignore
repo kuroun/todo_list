@@ -19,3 +19,6 @@ log/
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore public folder
+/public
