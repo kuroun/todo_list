@@ -8,13 +8,17 @@
 
 === Running Application in Local Environment
 
-* <tt>bundle install</tt>
+* Install necessary libraries: <tt>bundle install</tt>
 
-* <tt>rake db:create</tt>
+* Create database: <tt>rake db:create</tt>
 
-* <tt>rake db:migrate</tt>
+* Migrate database structure: <tt>rake db:migrate</tt>
 
-* <tt>rake db:seed</tt>
+* Seed sample data to database: <tt>rake db:seed</tt>
+
+* Run application <tt>rails s</tt>
+
+* Access application via browser at <tt>localhost:3000</tt>
 
 === Running Rspec
 
