@@ -16,3 +16,6 @@
 footer{
 	margin-top: 20px;
 }
+#error_expl li {
+	color: #a94442;
+}
