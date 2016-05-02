@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   respond_to :html
 
   def index
-    @items = Item.all
+    @items = Item.all_items(current_user.id)
     respond_with(@items)
   end
 
@@ -23,20 +23,17 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.save
-    #respond_with(@item)
-    redirect_to list_path(session[:list_id])
+    respond_with(@item, :location => list_path(session[:list_id]))
   end
 
   def update
     @item.update(item_params)
-    #respond_with(@item)
-    redirect_to list_path(session[:list_id])
+    respond_with(@item, :location => list_path(session[:list_id]))
   end
 
   def destroy
     @item.destroy
-    #respond_with(@item)
-    redirect_to list_path(session[:list_id])
+    respond_with(@item, :location => list_path(session[:list_id]))
   end
 
   private
