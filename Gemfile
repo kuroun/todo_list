@@ -40,3 +40,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'rspec-rails'
 gem 'devise'
 gem "twitter-bootstrap-rails"
+gem "figaro"
