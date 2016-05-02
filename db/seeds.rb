@@ -14,7 +14,7 @@ end
 if(List.all.empty?)
   User.all.each do |u|
     list1 = List.create({title: "List 1#{u.id}", user_id: u.id})
-    list2 = List.create({title: "List 1#{u.id}", user_id: u.id})
+    list2 = List.create({title: "List 2#{u.id}", user_id: u.id})
   end
 end
 if(Item.all.empty?)
